@@ -42,6 +42,7 @@ jobs:
           cd $BASEDIR
 
       - name: Set Environment Variables
+        id: info
         run: |
           set -x
           T2=$(TZ=UTC-2 date +'%Y%m%d_%H%M%S')
@@ -50,6 +51,7 @@ jobs:
           echo "ctime=${T2}" >> $GITHUB_ENV
           echo "ctimestamp=${TS}" >> $GITHUB_ENV
           echo "shorthash=${SHASH}" >> $GITHUB_ENV
+          echo "final_package=`if cat Makefile | grep FINALPACKAGE | grep 1; then echo 'true'; else echo 'false'; fi`" >> $GITHUB_OUTPUT
 
       - name: Build
         run: |
@@ -71,6 +73,7 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v1
+        if: steps.info.outputs.final_package == 'true'
         with:
           tag_name: ${{ env.ctime }}
           name: "Xinamine: ${{ env.shorthash }}_${{ env.ctime }}"

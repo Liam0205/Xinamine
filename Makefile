@@ -6,7 +6,7 @@ export ROOTLESS = 1
 
 # Theos optimisations
 
-export FINALPACKAGE = 1
+export FINALPACKAGE = 0
 export DEBUG = 0
 export THEOS_LEAN_AND_MEAN = 1
 export USING_JINX = 1
