@@ -9,7 +9,7 @@ INSTALL_TARGET_PROCESSES = SpringBoard
 # Define included files, imported frameworks, etc.
 
 LIBRARY_NAME = Xinamine
-$(LIBRARY_NAME)_FILES = Sources/load.s $(shell find Sources/$(LIBRARY_NAME) -name '*.swift')
+$(LIBRARY_NAME)_FILES = Sources/load.s $(wildcard Sources/Xinamine/*.swift)
 
 # Theos makefiles to include
 
