@@ -1,6 +1,6 @@
 Package: emt.paisseon.xinamine
 Name: Xinamine
-Version: 0.0.1
+Version: 0.0.2
 Architecture: iphoneos-arm
 Description: Add Xina tweak compatibility to Dopamine
 Maintainer: Sudo + Paisseon
